@@ -1,17 +1,7 @@
-plugins {
-    id 'com.android.application'
-    id 'kotlin-android'
-    id 'com.google.devtools.ksp' version '1.8.10-1.0.9'
-    id 'dagger.hilt.android.plugin'
-    id 'kotlin-parcelize'
-}
-
 android {
-    namespace "com.arjun.calorietracker"
     compileSdk Integer.parseInt(libs.versions.compile.sdk.get())
 
     defaultConfig {
-        applicationId "com.arjun.calorietracker"
         minSdk Integer.parseInt(libs.versions.min.sdk.get())
         targetSdk Integer.parseInt(libs.versions.compile.sdk.get())
         versionCode 1
@@ -50,15 +40,6 @@ android {
 
 dependencies {
 
-    implementation(project(":core"))
-    implementation(project(":onboarding:onboarding_presentation"))
-    implementation(project(":onboarding:onboarding_domain"))
-    implementation(project(":tracker:tracker_data"))
-    implementation(project(":tracker:tracker_domain"))
-    implementation(project(":tracker:tracker_presentation"))
-
-    implementation libs.bundles.google
-
     //Compose
     implementation(platform(libs.compose.bom))
     implementation libs.bundles.compose
@@ -75,28 +56,9 @@ dependencies {
     implementation libs.compose.destination.core
     ksp libs.compose.destination.ksp
 
-
     //Hilt
     implementation libs.hilt.android
     ksp libs.hilt.android.compiler
-
-    //Moshi
-    implementation libs.moshi
-    ksp libs.moshi.codegen
-
-    //Retrofit
-    implementation libs.bundles.retrofit
-
-    //okhttp
-    implementation(platform(libs.okhttp.bom))
-    implementation libs.bundles.okhttp
-
-    //Room
-    implementation libs.bundles.room
-    ksp libs.room.compiler
-
-    //Coroutines
-    implementation libs.bundles.coroutines
 
     //Unit Test
     testImplementation libs.bundles.unit.test
