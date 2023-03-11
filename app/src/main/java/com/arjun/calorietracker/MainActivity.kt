@@ -3,19 +3,16 @@ package com.arjun.calorietracker
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.material.MaterialTheme
-import androidx.compose.material.Surface
-import androidx.compose.material.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
-import com.arjun.calorietracker.ui.theme.CaloryTrackerTheme
+import com.arjun.calorietracker.ui.theme.CalorieTrackerTheme
+import com.arjun.onboarding_presentation.welcome.NavGraphs
+import com.ramcosta.composedestinations.DestinationsNavHost
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            CaloryTrackerTheme {
-
+            CalorieTrackerTheme {
+                DestinationsNavHost(navGraph = NavGraphs.root)
             }
         }
     }
