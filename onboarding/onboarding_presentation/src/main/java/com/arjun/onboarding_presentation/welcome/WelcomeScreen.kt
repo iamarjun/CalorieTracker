@@ -21,8 +21,8 @@ import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 @Composable
 fun WelcomeScreen(
     navigator: DestinationsNavigator,
-    modifier: Modifier = Modifier
 ) {
+    val modifier = Modifier
     val spacing = LocalSpacing.current
     Column(
         modifier = modifier.fillMaxWidth(),

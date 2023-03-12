@@ -58,7 +58,7 @@ dependencies {
 
     //Hilt
     implementation libs.hilt.android
-    ksp libs.hilt.android.compiler
+    kapt libs.hilt.android.compiler
 
     //Unit Test
     testImplementation libs.bundles.unit.test
