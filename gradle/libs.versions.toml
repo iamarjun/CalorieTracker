@@ -10,7 +10,7 @@ compose_compiler_ext = "1.4.3"
 java_compile_version = "11"
 compose_bom = "2023.01.00"
 compose_activity = "1.6.1"
-compose_viewmodel = "2.5.1"
+lifecycle = "2.6.0"
 compose_coil = "2.2.2"
 compose_destination = "1.7.36-beta"
 core_ktx = "1.9.0"
@@ -39,6 +39,7 @@ hilt_gradle_plugin = { module = "com.google.dagger:hilt-android-gradle-plugin", 
 core_ktx = { module = "androidx.core:core-ktx", version.ref = "core_ktx" }
 appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
 material_design = { module = "com.google.android.material:material", version.ref = "material" }
+viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-ktx", version.ref = "lifecycle" }
 
 compose_bom = { module = "androidx.compose:compose-bom", version.ref = "compose_bom" }
 compose_material2 = { module = "androidx.compose.material:material" }
@@ -52,12 +53,15 @@ compose_material_icons_extended = { module = "androidx.compose.material:material
 compose_ui_test_junit4 = { module = "androidx.compose.ui:ui-test-junit4" }
 compose_ui_test_manifest = { module = "androidx.compose.ui:ui-test-manifest" }
 compose_activity = { module = "androidx.activity:activity-compose", version.ref = "compose_activity" }
-compose_viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "compose_viewmodel" }
+compose_viewmodel = { module = "androidx.lifecycle:lifecycle-viewmodel-compose", version.ref = "lifecycle" }
+compose_lifecycle_runtime = { module = "androidx.lifecycle:lifecycle-runtime-compose", version.ref = "lifecycle"}
 compose_coil = { module = "io.coil-kt:coil-compose", version.ref = "compose_coil" }
 compose_destination_core = { module = "io.github.raamcosta.compose-destinations:core", version.ref = "compose_destination" }
 compose_destination_ksp = { module = "io.github.raamcosta.compose-destinations:ksp", version.ref = "compose_destination" }
 
+
 hilt_android = { module = "com.google.dagger:hilt-android", version.ref = "hilt" }
+hilt_compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt" }
 hilt_android_compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hilt" }
 hilt_android_testing = { module = "com.google.dagger:hilt-android-testing", version.ref = "hilt" }
 
@@ -91,8 +95,8 @@ unit_test_runner = { module = "androidx.test:runner", version.ref = "test_runner
 ui_test_espresso = { module = "androidx.test.espresso:espresso-core", version.ref = "espresso" }
 
 [bundles]
-google = ["core_ktx", "appcompat", "material_design"]
-compose = ["compose_foundation", "compose_material2", "compose_material3", "compose_ui", "compose_ui_tooling_preview", "compose_material_icons_core", "compose_material_icons_extended", "compose_activity", "compose_viewmodel", "compose_coil"]
+google = ["core_ktx", "appcompat", "material_design", "viewmodel"]
+compose = ["compose_foundation", "compose_material2", "compose_material3", "compose_ui", "compose_ui_tooling_preview", "compose_material_icons_core", "compose_material_icons_extended", "compose_activity", "compose_viewmodel", "compose_coil",  "compose_lifecycle_runtime"]
 retrofit = ["retrofit", "retrofit_moshi_converter"]
 okhttp = ["okhttp", "okhttp_logger"]
 room = ["room_runtime", "room_ktx"]

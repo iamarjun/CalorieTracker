@@ -1,20 +1,20 @@
-package com.arjun.core.utils.data.preference
+package com.arjun.core.domain
 
 import android.content.SharedPreferences
-import com.arjun.core.utils.domain.model.ActivityLevel
-import com.arjun.core.utils.domain.model.Gender
-import com.arjun.core.utils.domain.model.Goal
-import com.arjun.core.utils.domain.model.UserInfo
-import com.arjun.core.utils.domain.preference.Preferences
-import com.arjun.core.utils.domain.preference.Preferences.Companion.KEY_ACTIVITY_LEVEL
-import com.arjun.core.utils.domain.preference.Preferences.Companion.KEY_AGE
-import com.arjun.core.utils.domain.preference.Preferences.Companion.KEY_CARB_RATIO
-import com.arjun.core.utils.domain.preference.Preferences.Companion.KEY_FAT_RATIO
-import com.arjun.core.utils.domain.preference.Preferences.Companion.KEY_GENDER
-import com.arjun.core.utils.domain.preference.Preferences.Companion.KEY_GOAL
-import com.arjun.core.utils.domain.preference.Preferences.Companion.KEY_HEIGHT
-import com.arjun.core.utils.domain.preference.Preferences.Companion.KEY_PROTEIN_RATIO
-import com.arjun.core.utils.domain.preference.Preferences.Companion.KEY_WEIGHT
+import com.arjun.core.domain.model.ActivityLevel
+import com.arjun.core.domain.model.Gender
+import com.arjun.core.domain.model.Goal
+import com.arjun.core.domain.model.UserInfo
+import com.arjun.core.domain.preference.Preferences
+import com.arjun.core.domain.preference.Preferences.Companion.KEY_ACTIVITY_LEVEL
+import com.arjun.core.domain.preference.Preferences.Companion.KEY_AGE
+import com.arjun.core.domain.preference.Preferences.Companion.KEY_CARB_RATIO
+import com.arjun.core.domain.preference.Preferences.Companion.KEY_FAT_RATIO
+import com.arjun.core.domain.preference.Preferences.Companion.KEY_GENDER
+import com.arjun.core.domain.preference.Preferences.Companion.KEY_GOAL
+import com.arjun.core.domain.preference.Preferences.Companion.KEY_HEIGHT
+import com.arjun.core.domain.preference.Preferences.Companion.KEY_PROTEIN_RATIO
+import com.arjun.core.domain.preference.Preferences.Companion.KEY_WEIGHT
 import javax.inject.Inject
 
 class DefaultPreferences @Inject constructor(private val sharedPreference: SharedPreferences) :

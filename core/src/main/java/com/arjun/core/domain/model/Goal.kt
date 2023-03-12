@@ -1,4 +1,4 @@
-package com.arjun.core.utils.domain.model
+package com.arjun.core.domain.model
 
 sealed class Goal(val name: String) {
     object LoseWeight : Goal("lose")

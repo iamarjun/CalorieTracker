@@ -29,7 +29,7 @@ fun ActionButton(
             text = text,
             modifier = modifier.padding(LocalSpacing.current.spaceMedium),
             style = textStyle,
-            color = MaterialTheme.colors.primary
+            color = MaterialTheme.colors.onPrimary
         )
     }
 

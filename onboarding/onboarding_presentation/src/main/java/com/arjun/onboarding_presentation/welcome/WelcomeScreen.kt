@@ -3,7 +3,7 @@ package com.arjun.onboarding_presentation.welcome
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -11,9 +11,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.sp
 import com.arjun.core_ui.LocalSpacing
 import com.arjun.onboarding_presentation.R
 import com.arjun.onboarding_presentation.components.ActionButton
+import com.arjun.onboarding_presentation.destinations.GenderScreenDestination
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
@@ -21,11 +23,11 @@ import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 @Composable
 fun WelcomeScreen(
     navigator: DestinationsNavigator,
+    modifier: Modifier
 ) {
-    val modifier = Modifier
     val spacing = LocalSpacing.current
     Column(
-        modifier = modifier.fillMaxWidth(),
+        modifier = modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
@@ -34,13 +36,14 @@ fun WelcomeScreen(
             modifier = modifier,
             text = stringResource(id = R.string.welcome_text),
             textAlign = TextAlign.Center,
+            fontSize = 70.sp
         )
 
         Spacer(modifier = modifier.height(spacing.spaceMedium))
 
         ActionButton(
             text = stringResource(id = R.string.next),
-            onClick = { },
+            onClick = { navigator.navigate(GenderScreenDestination) },
             modifier = modifier.align(Alignment.CenterHorizontally),
             isEnabled = true
         )

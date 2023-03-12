@@ -1,4 +1,4 @@
-package com.arjun.core.utils.domain.model
+package com.arjun.core.domain.model
 
 sealed class ActivityLevel(val name: String) {
     object Low : ActivityLevel("low")

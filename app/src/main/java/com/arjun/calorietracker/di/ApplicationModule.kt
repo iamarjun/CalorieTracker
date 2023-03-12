@@ -2,8 +2,8 @@ package com.arjun.calorietracker.di
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.arjun.core.utils.data.preference.DefaultPreferences
-import com.arjun.core.utils.domain.preference.Preferences
+import com.arjun.core.domain.DefaultPreferences
+import com.arjun.core.domain.preference.Preferences
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
