@@ -5,6 +5,9 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material.Scaffold
+import androidx.compose.material.ScaffoldState
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -23,31 +26,34 @@ import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 @Composable
 fun WelcomeScreen(
     navigator: DestinationsNavigator,
-    modifier: Modifier
+    _modifier: Modifier,
+    scaffoldState: ScaffoldState
 ) {
-    val spacing = LocalSpacing.current
-    Column(
-        modifier = modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    ) {
+    Scaffold(modifier = _modifier.fillMaxSize(), scaffoldState = scaffoldState) {
+        val modifier = _modifier.padding(it)
+        val spacing = LocalSpacing.current
+        Column(
+            modifier = modifier.fillMaxSize(),
+            verticalArrangement = Arrangement.Center,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
 
-        Text(
-            modifier = modifier,
-            text = stringResource(id = R.string.welcome_text),
-            textAlign = TextAlign.Center,
-            fontSize = 70.sp
-        )
+            Text(
+                modifier = modifier,
+                text = stringResource(id = R.string.welcome_text),
+                textAlign = TextAlign.Center,
+                fontSize = 50.sp
+            )
 
-        Spacer(modifier = modifier.height(spacing.spaceMedium))
+            Spacer(modifier = modifier.height(spacing.spaceMedium))
 
-        ActionButton(
-            text = stringResource(id = R.string.next),
-            onClick = { navigator.navigate(GenderScreenDestination) },
-            modifier = modifier.align(Alignment.CenterHorizontally),
-            isEnabled = true
-        )
+            ActionButton(
+                text = stringResource(id = R.string.next),
+                onClick = { navigator.navigate(GenderScreenDestination) },
+                modifier = modifier.align(Alignment.CenterHorizontally),
+                isEnabled = true
+            )
 
+        }
     }
-
 }

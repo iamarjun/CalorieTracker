@@ -1,27 +1,26 @@
-package com.arjun.onboarding_domain.contract.gender
+package com.arjun.onboarding_domain.contract.age
 
-import com.arjun.core.domain.model.Gender
 import com.arjun.core.utils.UiEffect
 import com.arjun.core.utils.UiEvent
 import com.arjun.core.utils.UiState
 
-class GenderContract {
+class AgeContract {
 
     // Events that user performed
     sealed class Event : UiEvent {
-        data class OnGenderSelection(val gender: Gender): Event()
+        data class OnAgeChange(val age: String) : Event()
     }
 
     // Ui View States
     data class State(
-        val gender: Gender = Gender.Male
+        val age: Int = 0
     ) : UiState
 
     // View State that related to Gender
 
     // Side effects
     sealed class Effect : UiEffect {
-        object ShowToast : Effect()
+        data class ShowToast(val message: String) : Effect()
     }
 
 }

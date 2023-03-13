@@ -19,7 +19,6 @@ class GenderViewModel @Inject constructor(private val preferences: Preferences) 
 
     override fun handleEvent(event: GenderContract.Event) {
         when (event) {
-            GenderContract.Event.OnNextClick -> TODO()
             is GenderContract.Event.OnGenderSelection -> {
                 saveGender(event.gender)
             }
@@ -28,7 +27,7 @@ class GenderViewModel @Inject constructor(private val preferences: Preferences) 
 
     private fun saveGender(gender: Gender) {
         viewModelScope.launch {
-        setState { copy(gender = gender) }
+            setState { copy(gender = gender) }
             preferences.saveGender(gender)
         }
     }
