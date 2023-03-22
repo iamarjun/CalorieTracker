@@ -11,7 +11,11 @@ import com.arjun.onboarding_presentation.NavGraphs
 import com.arjun.onboarding_presentation.age.AgeViewModel
 import com.arjun.onboarding_presentation.destinations.AgeScreenDestination
 import com.arjun.onboarding_presentation.destinations.GenderScreenDestination
+import com.arjun.onboarding_presentation.destinations.HeightScreenDestination
+import com.arjun.onboarding_presentation.destinations.WeightScreenDestination
 import com.arjun.onboarding_presentation.gender.GenderViewModel
+import com.arjun.onboarding_presentation.height.HeightViewModel
+import com.arjun.onboarding_presentation.weight.WeightViewModel
 import com.ramcosta.composedestinations.DestinationsNavHost
 import com.ramcosta.composedestinations.navigation.dependency
 import dagger.hilt.android.AndroidEntryPoint
@@ -23,6 +27,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             CalorieTrackerTheme {
                 val genderVm = viewModel<GenderViewModel>()
+                val heightVm = viewModel<HeightViewModel>()
+                val weightVm = viewModel<WeightViewModel>()
                 val ageVm = viewModel<AgeViewModel>()
                 val modifier = Modifier
                 val scaffoldState = rememberScaffoldState()
@@ -31,12 +37,10 @@ class MainActivity : ComponentActivity() {
                     dependenciesContainerBuilder = {
                         dependency(modifier)
                         dependency(scaffoldState)
-                        dependency(GenderScreenDestination) {
-                            genderVm
-                        }
-                        dependency(AgeScreenDestination) {
-                            ageVm
-                        }
+                        dependency(GenderScreenDestination) { genderVm }
+                        dependency(AgeScreenDestination) { ageVm }
+                        dependency(HeightScreenDestination) { heightVm }
+                        dependency(WeightScreenDestination) { weightVm }
                     }
                 )
             }

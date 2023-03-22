@@ -42,7 +42,7 @@ fun WelcomeScreen(
                 modifier = modifier,
                 text = stringResource(id = R.string.welcome_text),
                 textAlign = TextAlign.Center,
-                fontSize = 50.sp
+                fontSize = 35.sp
             )
 
             Spacer(modifier = modifier.height(spacing.spaceMedium))

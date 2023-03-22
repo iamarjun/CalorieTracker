@@ -1,4 +1,4 @@
-package com.arjun.onboarding_presentation.age
+package com.arjun.onboarding_presentation.weight
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -19,21 +19,20 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.arjun.core_ui.LocalSpacing
-import com.arjun.onboarding_domain.contract.age.AgeContract
+import com.arjun.onboarding_domain.contract.weight.WeightContract
 import com.arjun.onboarding_presentation.R
 import com.arjun.onboarding_presentation.components.ActionButton
 import com.arjun.onboarding_presentation.components.UnitTextField
 import com.arjun.onboarding_presentation.destinations.AgeScreenDestination
-import com.arjun.onboarding_presentation.destinations.HeightScreenDestination
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import kotlinx.coroutines.flow.collectLatest
 
 @Destination
 @Composable
-fun AgeScreen(
+fun WeightScreen(
     navigator: DestinationsNavigator,
-    viewModel: AgeViewModel,
+    viewModel: WeightViewModel,
     _modifier: Modifier,
     scaffoldState: ScaffoldState
 ) {
@@ -46,7 +45,7 @@ fun AgeScreen(
         LaunchedEffect(key1 = Unit) {
             viewModel.effect.collectLatest {
                 when (it) {
-                    is AgeContract.Effect.ShowToast -> {
+                    is WeightContract.Effect.ShowToast -> {
                         scaffoldState.snackbarHostState.showSnackbar(it.message)
                     }
                 }
@@ -64,20 +63,20 @@ fun AgeScreen(
             ) {
                 Text(
                     modifier = modifier,
-                    text = stringResource(id = R.string.whats_your_age),
+                    text = stringResource(id = R.string.whats_your_weight),
                     style = MaterialTheme.typography.h3
                 )
                 Spacer(modifier.height(spacing.spaceMedium))
                 UnitTextField(
                     modifier = modifier,
-                    value = state.age.toString(),
-                    onValueChange = { viewModel.setEvent(AgeContract.Event.OnAgeChange(it)) },
-                    unit = stringResource(id = R.string.years)
+                    value = state.weight.toString(),
+                    onValueChange = { viewModel.setEvent(WeightContract.Event.OnWeightChange(it)) },
+                    unit = stringResource(id = R.string.kg)
                 )
             }
             ActionButton(
                 text = stringResource(id = R.string.next),
-                onClick = { navigator.navigate(HeightScreenDestination) },
+                onClick = { navigator.navigate(AgeScreenDestination) },
                 modifier = modifier.align(Alignment.BottomEnd),
                 isEnabled = true
             )

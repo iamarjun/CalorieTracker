@@ -1,14 +1,17 @@
 package com.arjun.onboarding_presentation.age
 
 import com.arjun.core.domain.preference.Preferences
+import com.arjun.core.domain.usecase.FilterDigits
 import com.arjun.core.utils.BaseViewModel
 import com.arjun.onboarding_domain.contract.age.AgeContract
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 
 @HiltViewModel
-class AgeViewModel @Inject constructor(private val preferences: Preferences) :
-    BaseViewModel<AgeContract.Event, AgeContract.State, AgeContract.Effect>() {
+class AgeViewModel @Inject constructor(
+    private val preferences: Preferences,
+    private val filterDigits: FilterDigits,
+) : BaseViewModel<AgeContract.Event, AgeContract.State, AgeContract.Effect>() {
 
     override fun createInitialState(): AgeContract.State {
         return AgeContract.State()
@@ -22,8 +25,9 @@ class AgeViewModel @Inject constructor(private val preferences: Preferences) :
                     return
                 }
 
-                val age = event.age.filter { it.isDigit() }.toInt()
+                val age = filterDigits(event.age)
                 setState { copy(age = age) }
+                preferences.saveAge(age)
             }
         }
     }
