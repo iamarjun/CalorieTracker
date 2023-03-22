@@ -23,6 +23,7 @@ import com.arjun.onboarding_domain.contract.weight.WeightContract
 import com.arjun.onboarding_presentation.R
 import com.arjun.onboarding_presentation.components.ActionButton
 import com.arjun.onboarding_presentation.components.UnitTextField
+import com.arjun.onboarding_presentation.destinations.ActivityScreenDestination
 import com.arjun.onboarding_presentation.destinations.AgeScreenDestination
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
@@ -76,7 +77,7 @@ fun WeightScreen(
             }
             ActionButton(
                 text = stringResource(id = R.string.next),
-                onClick = { navigator.navigate(AgeScreenDestination) },
+                onClick = { navigator.navigate(ActivityScreenDestination) },
                 modifier = modifier.align(Alignment.BottomEnd),
                 isEnabled = true
             )
