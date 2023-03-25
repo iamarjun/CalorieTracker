@@ -28,6 +28,7 @@ import com.arjun.onboarding_presentation.R
 import com.arjun.onboarding_presentation.components.ActionButton
 import com.arjun.onboarding_presentation.components.SelectableButton
 import com.arjun.onboarding_presentation.destinations.AgeScreenDestination
+import com.arjun.onboarding_presentation.destinations.NutrientGoalScreenDestination
 import com.ramcosta.composedestinations.annotation.Destination
 import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
@@ -114,7 +115,7 @@ fun GoalScreen(
             }
             ActionButton(
                 text = stringResource(id = R.string.next),
-                onClick = { navigator.navigate(AgeScreenDestination) },
+                onClick = { navigator.navigate(NutrientGoalScreenDestination) },
                 modifier = modifier.align(Alignment.BottomEnd),
                 isEnabled = true
             )

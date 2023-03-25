@@ -15,10 +15,12 @@ import com.arjun.onboarding_presentation.destinations.AgeScreenDestination
 import com.arjun.onboarding_presentation.destinations.GenderScreenDestination
 import com.arjun.onboarding_presentation.destinations.GoalScreenDestination
 import com.arjun.onboarding_presentation.destinations.HeightScreenDestination
+import com.arjun.onboarding_presentation.destinations.NutrientGoalScreenDestination
 import com.arjun.onboarding_presentation.destinations.WeightScreenDestination
 import com.arjun.onboarding_presentation.gender.GenderViewModel
 import com.arjun.onboarding_presentation.goal.GoalViewModel
 import com.arjun.onboarding_presentation.height.HeightViewModel
+import com.arjun.onboarding_presentation.nutrition_goal.NutrientGoalViewModel
 import com.arjun.onboarding_presentation.weight.WeightViewModel
 import com.ramcosta.composedestinations.DestinationsNavHost
 import com.ramcosta.composedestinations.navigation.dependency
@@ -30,6 +32,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             CalorieTrackerTheme {
+                val nutrientsGoalVm = viewModel<NutrientGoalViewModel>()
                 val activityLevelVm = viewModel<ActivityViewModel>()
                 val goalVm = viewModel<GoalViewModel>()
                 val genderVm = viewModel<GenderViewModel>()
@@ -49,6 +52,7 @@ class MainActivity : ComponentActivity() {
                         dependency(WeightScreenDestination) { weightVm }
                         dependency(ActivityScreenDestination) { activityLevelVm }
                         dependency(GoalScreenDestination) { goalVm }
+                        dependency(NutrientGoalScreenDestination) { nutrientsGoalVm }
                     }
                 )
             }
