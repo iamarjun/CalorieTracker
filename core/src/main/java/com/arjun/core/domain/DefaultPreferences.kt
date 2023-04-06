@@ -14,6 +14,7 @@ import com.arjun.core.domain.preference.Preferences.Companion.KEY_GENDER
 import com.arjun.core.domain.preference.Preferences.Companion.KEY_GOAL
 import com.arjun.core.domain.preference.Preferences.Companion.KEY_HEIGHT
 import com.arjun.core.domain.preference.Preferences.Companion.KEY_PROTEIN_RATIO
+import com.arjun.core.domain.preference.Preferences.Companion.KEY_SHOULD_SHOW_ONBOARDING
 import com.arjun.core.domain.preference.Preferences.Companion.KEY_WEIGHT
 import javax.inject.Inject
 
@@ -77,5 +78,13 @@ class DefaultPreferences @Inject constructor(private val sharedPreference: Share
             proteinRatio,
             fatRatio,
         )
+    }
+
+    override fun saveShouldShowOnBoarding(boolean: Boolean) {
+        sharedPreference.edit().putBoolean(KEY_SHOULD_SHOW_ONBOARDING, boolean).apply()
+    }
+
+    override fun shouldShowOnBoarding(): Boolean {
+        return sharedPreference.getBoolean(KEY_SHOULD_SHOW_ONBOARDING, true)
     }
 }
