@@ -12,7 +12,10 @@ apply from: "${project.rootDir}/compose-build.gradle"
 android {
     namespace "com.arjun.onboarding_presentation"
 }
-
+ksp {
+    arg("compose-destinations.mode", "navgraphs")
+    arg("compose-destinations.moduleName", "onboarding")
+}
 dependencies {
 
     implementation(project(":core"))

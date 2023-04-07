@@ -20,26 +20,24 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.arjun.core.domain.model.ActivityLevel
 import com.arjun.core_ui.LocalSpacing
 import com.arjun.onboarding_domain.contract.activity.ActivityContract
+import com.arjun.onboarding_presentation.OnboardingNavigator
 import com.arjun.onboarding_presentation.R
-import com.arjun.onboarding_presentation.activity.ActivityViewModel
 import com.arjun.onboarding_presentation.components.ActionButton
 import com.arjun.onboarding_presentation.components.SelectableButton
-import com.arjun.onboarding_presentation.destinations.AgeScreenDestination
-import com.arjun.onboarding_presentation.destinations.GoalScreenDestination
 import com.ramcosta.composedestinations.annotation.Destination
-import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
 @Destination
 @Composable
 fun ActivityScreen(
-    navigator: DestinationsNavigator,
-    viewModel: ActivityViewModel,
+    navigator: OnboardingNavigator,
     _modifier: Modifier,
-    scaffoldState: ScaffoldState
+    scaffoldState: ScaffoldState,
+    viewModel: ActivityViewModel = hiltViewModel()
 ) {
 
     Scaffold(modifier = _modifier.fillMaxSize(), scaffoldState = scaffoldState) {
@@ -116,7 +114,7 @@ fun ActivityScreen(
             }
             ActionButton(
                 text = stringResource(id = R.string.next),
-                onClick = { navigator.navigate(GoalScreenDestination) },
+                onClick = { navigator.navigateToNextScreen() },
                 modifier = modifier.align(Alignment.BottomEnd),
                 isEnabled = true
             )

@@ -20,22 +20,22 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.arjun.core.domain.model.Gender
 import com.arjun.core_ui.LocalSpacing
 import com.arjun.onboarding_domain.contract.gender.GenderContract
+import com.arjun.onboarding_presentation.OnboardingNavigator
 import com.arjun.onboarding_presentation.R
 import com.arjun.onboarding_presentation.components.ActionButton
 import com.arjun.onboarding_presentation.components.SelectableButton
-import com.arjun.onboarding_presentation.destinations.AgeScreenDestination
 import com.ramcosta.composedestinations.annotation.Destination
-import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
 @Destination
 @Composable
 fun GenderScreen(
-    navigator: DestinationsNavigator,
-    viewModel: GenderViewModel,
+    navigator: OnboardingNavigator,
+    viewModel: GenderViewModel = hiltViewModel(),
     _modifier: Modifier,
     scaffoldState: ScaffoldState
 ) {
@@ -86,7 +86,7 @@ fun GenderScreen(
             }
             ActionButton(
                 text = stringResource(id = R.string.next),
-                onClick = { navigator.navigate(AgeScreenDestination) },
+                onClick = { navigator.navigateToNextScreen() },
                 modifier = modifier.align(Alignment.BottomEnd),
                 isEnabled = true
             )

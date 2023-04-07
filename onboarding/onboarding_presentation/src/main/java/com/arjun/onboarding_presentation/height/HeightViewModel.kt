@@ -2,7 +2,6 @@ package com.arjun.onboarding_presentation.height
 
 import com.arjun.core.domain.preference.Preferences
 import com.arjun.core.utils.BaseViewModel
-import com.arjun.onboarding_domain.contract.age.AgeContract
 import com.arjun.onboarding_domain.contract.height.HeightContract
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject

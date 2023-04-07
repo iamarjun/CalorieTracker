@@ -74,7 +74,7 @@ dependencies {
     debugImplementation libs.compose.ui.test.manifest
 
     //Navigation
-    implementation libs.compose.destination.core
+    implementation libs.bundles.navigation
     ksp libs.compose.destination.ksp
 
 

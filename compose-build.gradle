@@ -35,7 +35,16 @@ android {
         resources.excludes.add("META-INF/gradle/incremental.annotation.processors")
     }
 }
-
+kotlin {
+    sourceSets {
+        debug {
+            kotlin.srcDir("build/generated/ksp/debug/kotlin")
+        }
+        release {
+            kotlin.srcDir("build/generated/ksp/release/kotlin")
+        }
+    }
+}
 dependencies {
 
     //Compose
@@ -51,7 +60,7 @@ dependencies {
     debugImplementation libs.compose.ui.test.manifest
 
     //Navigation
-    implementation libs.compose.destination.core
+    implementation libs.bundles.navigation
     ksp libs.compose.destination.ksp
 
     //Hilt

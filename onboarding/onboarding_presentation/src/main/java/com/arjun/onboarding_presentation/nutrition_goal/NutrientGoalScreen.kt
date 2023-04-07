@@ -17,22 +17,22 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.arjun.core_ui.LocalSpacing
 import com.arjun.onboarding_domain.contract.nutrition_goal.NutrientGoalContract
+import com.arjun.onboarding_presentation.OnboardingNavigator
 import com.arjun.onboarding_presentation.R
 import com.arjun.onboarding_presentation.components.ActionButton
 import com.arjun.onboarding_presentation.components.UnitTextField
-import com.arjun.onboarding_presentation.destinations.WeightScreenDestination
 import com.ramcosta.composedestinations.annotation.Destination
-import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import kotlinx.coroutines.flow.collectLatest
 
 @Destination
 @Composable
 fun NutrientGoalScreen(
-    navigator: DestinationsNavigator,
-    viewModel: NutrientGoalViewModel,
+    navigator: OnboardingNavigator,
+    viewModel: NutrientGoalViewModel = hiltViewModel(),
     modifier: Modifier,
     scaffoldState: ScaffoldState
 ) {
@@ -108,7 +108,7 @@ fun NutrientGoalScreen(
             }
             ActionButton(
                 text = stringResource(id = R.string.next),
-                onClick = { navigator.navigate(WeightScreenDestination) },
+                onClick = { navigator.navigateToNextScreen() },
                 modifier = modifier.align(Alignment.BottomEnd),
                 isEnabled = true
             )

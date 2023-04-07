@@ -17,23 +17,22 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.arjun.core_ui.LocalSpacing
 import com.arjun.onboarding_domain.contract.weight.WeightContract
+import com.arjun.onboarding_presentation.OnboardingNavigator
 import com.arjun.onboarding_presentation.R
 import com.arjun.onboarding_presentation.components.ActionButton
 import com.arjun.onboarding_presentation.components.UnitTextField
-import com.arjun.onboarding_presentation.destinations.ActivityScreenDestination
-import com.arjun.onboarding_presentation.destinations.AgeScreenDestination
 import com.ramcosta.composedestinations.annotation.Destination
-import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 import kotlinx.coroutines.flow.collectLatest
 
 @Destination
 @Composable
 fun WeightScreen(
-    navigator: DestinationsNavigator,
-    viewModel: WeightViewModel,
+    navigator: OnboardingNavigator,
+    viewModel: WeightViewModel = hiltViewModel(),
     _modifier: Modifier,
     scaffoldState: ScaffoldState
 ) {
@@ -77,7 +76,7 @@ fun WeightScreen(
             }
             ActionButton(
                 text = stringResource(id = R.string.next),
-                onClick = { navigator.navigate(ActivityScreenDestination) },
+                onClick = { navigator.navigateToNextScreen() },
                 modifier = modifier.align(Alignment.BottomEnd),
                 isEnabled = true
             )

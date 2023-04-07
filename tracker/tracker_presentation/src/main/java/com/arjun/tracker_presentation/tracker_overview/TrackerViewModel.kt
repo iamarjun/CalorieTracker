@@ -1,4 +1,4 @@
-package com.arjun.tracker_presentation
+package com.arjun.tracker_presentation.tracker_overview
 
 import com.arjun.core.domain.preference.Preferences
 import com.arjun.core.utils.BaseViewModel

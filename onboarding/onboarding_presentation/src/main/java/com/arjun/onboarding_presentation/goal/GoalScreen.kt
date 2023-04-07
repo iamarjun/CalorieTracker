@@ -20,23 +20,22 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.arjun.core.domain.model.Goal
 import com.arjun.core_ui.LocalSpacing
 import com.arjun.onboarding_domain.contract.goal.GoalsContract
+import com.arjun.onboarding_presentation.OnboardingNavigator
 import com.arjun.onboarding_presentation.R
 import com.arjun.onboarding_presentation.components.ActionButton
 import com.arjun.onboarding_presentation.components.SelectableButton
-import com.arjun.onboarding_presentation.destinations.AgeScreenDestination
-import com.arjun.onboarding_presentation.destinations.NutrientGoalScreenDestination
 import com.ramcosta.composedestinations.annotation.Destination
-import com.ramcosta.composedestinations.navigation.DestinationsNavigator
 
 @Destination
 @Composable
 fun GoalScreen(
-    navigator: DestinationsNavigator,
-    viewModel: GoalViewModel,
+    navigator: OnboardingNavigator,
+    viewModel: GoalViewModel = hiltViewModel(),
     _modifier: Modifier,
     scaffoldState: ScaffoldState
 ) {
@@ -115,7 +114,7 @@ fun GoalScreen(
             }
             ActionButton(
                 text = stringResource(id = R.string.next),
-                onClick = { navigator.navigate(NutrientGoalScreenDestination) },
+                onClick = { navigator.navigateToNextScreen() },
                 modifier = modifier.align(Alignment.BottomEnd),
                 isEnabled = true
             )

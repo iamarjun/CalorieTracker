@@ -13,6 +13,10 @@ android {
     namespace 'com.arjun.tracker_presentation'
 }
 
+ksp {
+    arg("compose-destinations.mode", "navgraphs")
+    arg("compose-destinations.moduleName", "tracker")
+}
 dependencies {
 
     implementation(project(":core"))

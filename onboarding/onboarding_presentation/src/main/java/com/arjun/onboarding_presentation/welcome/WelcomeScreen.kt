@@ -16,16 +16,17 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.sp
 import com.arjun.core_ui.LocalSpacing
+import com.arjun.onboarding_presentation.OnboardingNavigator
 import com.arjun.onboarding_presentation.R
 import com.arjun.onboarding_presentation.components.ActionButton
-import com.arjun.onboarding_presentation.destinations.GenderScreenDestination
 import com.ramcosta.composedestinations.annotation.Destination
-import com.ramcosta.composedestinations.navigation.DestinationsNavigator
+import com.ramcosta.composedestinations.annotation.RootNavGraph
 
-@Destination(start = true)
+@RootNavGraph(start = true)
+@Destination
 @Composable
 fun WelcomeScreen(
-    navigator: DestinationsNavigator,
+    navigator: OnboardingNavigator,
     _modifier: Modifier,
     scaffoldState: ScaffoldState
 ) {
@@ -49,7 +50,7 @@ fun WelcomeScreen(
 
             ActionButton(
                 text = stringResource(id = R.string.next),
-                onClick = { navigator.navigate(GenderScreenDestination) },
+                onClick = { navigator.navigateToNextScreen() },
                 modifier = modifier.align(Alignment.CenterHorizontally),
                 isEnabled = true
             )
