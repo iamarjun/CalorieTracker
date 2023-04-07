@@ -40,7 +40,7 @@ fun NutrientsHeader(
         modifier = modifier
             .fillMaxWidth()
             .clip(shape = RoundedCornerShape(bottomEnd = 50.dp, bottomStart = 50.dp))
-            .background(MaterialTheme.colors.background)
+            .background(MaterialTheme.colors.primary)
             .padding(horizontal = spacing.spaceLarge, vertical = spacing.spaceExtraLarge)
     ) {
         Row(modifier = modifier.fillMaxWidth(), horizontalArrangement = Arrangement.SpaceBetween) {
@@ -80,24 +80,24 @@ fun NutrientsHeader(
         Spacer(modifier = modifier.height(spacing.spaceLarge))
         Row(
             modifier = modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceEvenly
+            horizontalArrangement = Arrangement.SpaceBetween
         ) {
             NutrientsBarInfo(
-                modifier = modifier.size(90.dp),
+                modifier = modifier.size(100.dp),
                 value = state.totalCarbs,
                 goal = state.carbsGoal,
                 name = stringResource(id = R.string.carbs),
                 color = CarbColor
             )
             NutrientsBarInfo(
-                modifier = modifier.size(90.dp),
+                modifier = modifier.size(100.dp),
                 value = state.totalProtein,
                 goal = state.proteinGoal,
                 name = stringResource(id = R.string.protein),
                 color = ProteinColor
             )
             NutrientsBarInfo(
-                modifier = modifier.size(90.dp),
+                modifier = modifier.size(100.dp),
                 value = state.totalFat,
                 goal = state.fatGoal,
                 name = stringResource(id = R.string.fat),
